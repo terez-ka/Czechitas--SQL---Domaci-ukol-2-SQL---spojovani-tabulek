@@ -1,0 +1,29 @@
+--Zadání domácího úkolu:
+--1. Kdy se prodalo nejvíce výrobkù (units) a jaké to byly (Product)?
+SELECT SUM (UNITS) AS pocet_prodanych_kusu, product, calendarid AS datum
+FROM SQL1.Sales s
+INNER JOIN SQL1.Products p
+ON s.productid = p.productid
+Group by product, calendarid
+Order by pocet_prodanych_kusu desc
+FETCH FIRST 1 ROWS ONLY;
+
+--2. Jaké byly tržby v jednotlivých státech? Zajímají nás pouze mìsta zaèínající na 'Bos'.
+SELECT ROUND ((SUM (s.revenue)),1) AS trzba_celkem, c.state AS stát
+FROM SQL1.Sales s
+INNER JOIN SQL1.Cities c
+ON s.zip = c.zip 
+WHERE c.city LIKE ('Bos%') and s.revenue is not null
+GROUP BY stát
+ORDER BY trzba_celkem desc;
+
+
+--3. Jaký poèet produktù mají výrobci v kategorii Mix? Zajímají nás i výrobci, kteøí pro kategorii Mix nic nevyrábí.
+SELECT m.manufacturer AS výrobce, count(distinct p.productid) AS pocet_produktu
+FROM SQL1.MANUFACTURERS m
+LEFT JOIN SQL1.Products p
+ON m.manufacturerid = p.manufacturerid
+AND category = 'Mix'
+Group by  m.manufacturer;
+
+
