@@ -1,4 +1,4 @@
-# Czechitas--SQL---Domaci-ukol-2-SQL---spojovani-tabulek
+# Czechitas--SQL---Domaci-ukol-3-SQL---spojovani-tabulek
 Tento úkol byl zaměřen na práci s agregačními funkcemi, filtrování dat pomocí podmínek (WHERE, LIKE), seskupování (GROUP BY) a spojování tabulek (JOIN). Pracovali jsme s fiktivní databází v systému Oracle, ke které jsme měli přístup během kurzu.
 
 Zadání domácího úkolu:
